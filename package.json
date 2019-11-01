@@ -1,0 +1,33 @@
+{
+  "name": "lab4",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "ejs": "~2.3.3",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "morgan": "~1.6.1",
+    "request": "^2.88.0",
+    "serve-favicon": "~2.3.0"
+  },
+  "description": "In this lab you will implement the Utah cities suggestions RESTful service in Node.js that connects to your weather cities application from [\"Activity V3: Vue with REST Calls\"](https://github.com/BYUCS260/Vue-REST).  You will take a URL with a ?q=chars suffix and will look up all of the utah cities that have those chars as a prefix. You will then return a JSON string corresponding to the entries.",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BYUCS260/lab-4-node-chantelprows.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BYUCS260/lab-4-node-chantelprows/issues"
+  },
+  "homepage": "https://github.com/BYUCS260/lab-4-node-chantelprows#readme"
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>Cat Facts</title>
+</head>
+
+<body style="background-color: Lavender;">
+  <div id="app">
+    <nav class="navbar navbar-light" style="background-color: Plum; height: 100px;">
+      <h2 style="color: white; font-style: italic; font-size: 40px;"> Cat Facts </h2>
+    </nav>
+
+    <div v-if="loading" style="font-size: 70px; color: Indigo; font-family: Papyrus, fantasy; font-weight: 700; padding-left: 20px; padding-top: 20px;">
+      Loading . . .
+    </div>
+
+    <div v-else>
+      <div style="font-size: 70px; color: Indigo; font-family: Papyrus, fantasy; font-weight: 700; padding-left: 20px; padding-top: 20px;">
+        Enter in a number 1 - {{factList.length}} to get a Cat Fact! 
+        <img style="height: 50px; width: 50px;" src="data:image/jpeg;base64,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">
+      </div>
+
+      <input type=text v-model="num" style="margin-left: 50px; padding-top: 10px; padding-bottom: 10px;"></input>
+      <button @click="selectFact" style="
+        border-radius: 20px;
+        padding: 8px 20px;
+        font-size: 12px;
+        color: white;
+        background-color: Indigo;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        margin-left: 20px;
+        margin-top: 20px;"> Submit 
+      </button>
+    </div>
+    <br><br><br>
+
+    <div v-if="selectedFact" style="font-size: 50px; color: Magenta; font-family: Impact, Charcoal, sans-serif; font-weight: 700; padding-left: 100px; padding-right: 100px; padding-top: 20px;">
+      {{selectedFact.text}}
+    </div>
+    <br><br>
+
+
+    <div class="navbar fixed-bottom" style="background-color: Plum;">
+      <a href="https://github.com/chantelprows/creative-project-4" style="color: white;"> Github Repository </a>
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+  <script src="javascripts/script.js"></script>
+</body>
+
+</html>
